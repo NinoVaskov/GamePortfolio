@@ -125,6 +125,33 @@ nav{
   color:var(--accent);
 }
 
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  position:relative;
+}
+
+.nav-toggle-checkbox{
+  display:none;
+}
+
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  padding:6px;
+}
+
+.nav-toggle span{
+  width:24px;
+  height:2px;
+  background:var(--text);
+  border-radius:2px;
+  transition:0.25s;
+}
+
 /* HERO */
 
 .hero{
@@ -460,8 +487,41 @@ footer{
     font-size:42px;
   }
 
+  .nav-toggle{
+    display:flex;
+  }
+
   .nav-links{
     display:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    margin-top:16px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px 26px;
+    box-shadow:var(--shadow);
+    white-space:nowrap;
+  }
+
+  .nav-toggle-checkbox:checked ~ .nav-links{
+    display:flex;
+  }
+
+  .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(2){
+    opacity:0;
+  }
+
+  .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
   }
 
 }
@@ -475,11 +535,19 @@ footer{
   <div class="nav-inner">
     <div class="logo">Nino<span>.</span>Vaskov</div>
 
-    <div class="nav-links">
-      <a href="#portfolio">Portfolio</a>
-      <a href="cv.html">CV</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+
+      <div class="nav-links">
+        <a href="#portfolio">Portfolio</a>
+        <a href="cv.html">CV</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <label for="nav-toggle" class="nav-toggle">
+        <span></span><span></span><span></span>
+      </label>
     </div>
   </div>
 </nav>
@@ -515,14 +583,14 @@ footer{
 
   <div class="projects">
 
-    <!-- STEAM TRAIN -->
+    <!-- STREAM TRAIN -->
 
     <div class="project">
 
       <div class="project-left">
         <div class="project-tag">Co-op Adventure</div>
 
-        <h3>Steam Train</h3>
+        <h3>Stream Train</h3>
         <p class="project-role">Composer • FMOD Implementation</p>
 
         <p>

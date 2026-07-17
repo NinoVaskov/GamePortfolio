@@ -104,6 +104,33 @@ nav{
   color:var(--accent);
 }
 
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  position:relative;
+}
+
+.nav-toggle-checkbox{
+  display:none;
+}
+
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  padding:6px;
+}
+
+.nav-toggle span{
+  width:24px;
+  height:2px;
+  background:var(--text);
+  border-radius:2px;
+  transition:0.25s;
+}
+
 /* CV HERO */
 
 .cv-hero{
@@ -374,6 +401,47 @@ footer{
 
 }
 
+@media(max-width:700px){
+
+  .nav-toggle{
+    display:flex;
+  }
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    margin-top:16px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px 26px;
+    box-shadow:var(--shadow);
+    white-space:nowrap;
+  }
+
+  .nav-toggle-checkbox:checked ~ .nav-links{
+    display:flex;
+  }
+
+  .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(2){
+    opacity:0;
+  }
+
+  .nav-toggle-checkbox:checked ~ .nav-toggle span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+  }
+
+}
+
 </style>
 </head>
 
@@ -383,11 +451,19 @@ footer{
   <div class="nav-inner">
     <a href="index.html" class="logo">Nino<span>.</span>Vaskov</a>
 
-    <div class="nav-links">
-      <a href="index.html#portfolio">Portfolio</a>
-      <a href="cv.html" class="active">CV</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#contact">Contact</a>
+    <div class="nav-right">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+
+      <div class="nav-links">
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="cv.html" class="active">CV</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <label for="nav-toggle" class="nav-toggle">
+        <span></span><span></span><span></span>
+      </label>
     </div>
   </div>
 </nav>
@@ -422,7 +498,7 @@ footer{
   <p>
     Composer, producer, and audio director with 20+ years across game scoring, record production, and mixing/mastering.
     Two-time BAFTA-nominated composer (Frantics, 2018; Chimparty, 2019), currently scoring titles for Half Past Yellow,
-    including the 2025 Steam release Tempest Tower. Comfortable composing across hip hop, electronic, rock/metal, ambient,
+    including the upcoming 2026 Steam release Stream Train. Comfortable composing across hip hop, electronic, rock/metal, ambient,
     and pop. Fluent in FMOD, Unity, Miro. Full audio pipeline experience: composition, arrangement, recording, mixing,
     and mastering.
   </p>
@@ -493,7 +569,7 @@ footer{
   <div class="credits-grid">
 
     <div class="credit-card">
-      <h3>Steam Train</h3>
+      <h3>Stream Train</h3>
       <div class="credit-meta">
         <span>Half Past Yellow</span>
         <span>PC (Steam)</span>
