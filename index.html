@@ -201,7 +201,7 @@ nav{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   gap:40px;
-  align-items:start;
+  align-items:stretch;
   box-shadow:var(--shadow);
 }
 
@@ -209,6 +209,10 @@ nav{
   display:flex;
   flex-direction:column;
   gap:24px;
+}
+
+.project-left > .soundcloud{
+  margin-top:auto;
 }
 
 .project-tag{
@@ -425,6 +429,7 @@ footer{
 
   .project-left > .soundcloud{
     order:5;
+    margin-top:0;
   }
 
   .project > .video-wrap{
